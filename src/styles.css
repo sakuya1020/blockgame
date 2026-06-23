@@ -1,0 +1,268 @@
+:root {
+  color: #edf4fb;
+  background: #101722;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: #ffbf3d;
+  color: #171a20;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+button:hover {
+  background: #ffd66f;
+}
+
+.shell {
+  align-items: stretch;
+  background:
+    linear-gradient(135deg, rgba(47, 195, 163, 0.2), transparent 30%),
+    linear-gradient(315deg, rgba(244, 101, 117, 0.17), transparent 34%),
+    #101722;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(320px, 720px) minmax(260px, 330px);
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.play-wrap {
+  align-self: center;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  position: relative;
+  width: min(100%, 720px);
+}
+
+#game {
+  display: block;
+  height: 100%;
+  touch-action: none;
+  width: 100%;
+}
+
+.goal-label {
+  background: rgba(255, 223, 112, 0.92);
+  border-radius: 6px;
+  color: #171a20;
+  font-size: 12px;
+  font-weight: 900;
+  left: 14px;
+  letter-spacing: 0;
+  padding: 4px 8px;
+  position: absolute;
+  top: 18.1%;
+}
+
+.drop-guide {
+  background: rgba(255, 255, 255, 0.3);
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+}
+
+.hud {
+  align-self: center;
+  background: rgba(21, 30, 42, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: calc(100vh - 40px);
+  padding: 22px;
+}
+
+.eyebrow {
+  color: #67ddc7;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.metrics {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metrics div,
+.next-panel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.metrics span,
+.next-panel span {
+  color: #a9b7c6;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.metrics strong {
+  display: block;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.next-panel canvas {
+  display: block;
+  height: auto;
+  margin: 8px auto 0;
+  width: min(100%, 180px);
+}
+
+.controls {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.controls button:last-child {
+  background: #253448;
+  color: #edf4fb;
+}
+
+.controls button:last-child:hover {
+  background: #30435b;
+}
+
+.keys {
+  display: grid;
+  gap: 8px 12px;
+  grid-template-columns: auto 1fr;
+  margin-top: auto;
+}
+
+.keys span {
+  color: #a9b7c6;
+  font-size: 13px;
+}
+
+.keys span:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: #edf4fb;
+  font-weight: 800;
+  padding: 3px 7px;
+  text-align: center;
+}
+
+.overlay {
+  align-items: center;
+  background: rgba(16, 23, 34, 0.86);
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: center;
+  padding: 28px;
+  position: absolute;
+  text-align: center;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.result-stats {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 18px 0 22px;
+}
+
+.result-stats span {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 110px;
+  padding: 10px 14px;
+}
+
+.result-stats strong {
+  font-size: 26px;
+}
+
+@media (max-width: 920px) {
+  .shell {
+    grid-template-columns: minmax(300px, 620px);
+    padding: 12px;
+  }
+
+  .play-wrap,
+  .hud {
+    align-self: auto;
+    max-height: none;
+  }
+
+  .hud {
+    order: -1;
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .shell {
+    gap: 10px;
+    padding: 8px;
+  }
+
+  .hud {
+    gap: 12px;
+  }
+
+  .metrics strong {
+    font-size: 20px;
+  }
+
+  .keys {
+    display: none;
+  }
+}

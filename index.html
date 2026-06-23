@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack Rush</title>
+  </head>
+  <body>
+    <div id="app">
+      <main class="shell">
+        <section class="play-wrap" aria-label="Stack Rush game area">
+          <canvas id="game" width="720" height="900"></canvas>
+          <div class="goal-label">GOAL</div>
+          <div class="drop-guide" id="dropGuide"></div>
+          <div class="overlay hidden" id="resultPanel">
+            <p class="eyebrow" id="resultEyebrow">CLEAR</p>
+            <h1 id="resultTitle">Stack Complete</h1>
+            <div class="result-stats">
+              <span><strong id="resultScore">0</strong> drops</span>
+              <span><strong id="resultTime">0.0</strong>s</span>
+            </div>
+            <button id="restartFromResult" type="button">Restart</button>
+          </div>
+        </section>
+        <aside class="hud" aria-label="Game status and controls">
+          <div>
+            <p class="eyebrow">Stack Rush</p>
+            <h1>積み上げレース</h1>
+          </div>
+          <div class="metrics">
+            <div>
+              <span>Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>Time</span>
+              <strong id="timer">0.0</strong>
+            </div>
+            <div>
+              <span>Best</span>
+              <strong id="best">--</strong>
+            </div>
+          </div>
+          <div class="next-panel">
+            <span>Next</span>
+            <canvas id="next" width="180" height="150"></canvas>
+          </div>
+          <div class="controls">
+            <button id="restart" type="button">Restart</button>
+            <button id="pause" type="button">Pause</button>
+          </div>
+          <div class="keys" aria-label="Controls">
+            <span>A / D</span>
+            <span>Move</span>
+            <span>W / ↑</span>
+            <span>Rotate</span>
+            <span>Space</span>
+            <span>Drop</span>
+            <span>Mouse</span>
+            <span>Aim</span>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
